@@ -1,0 +1,5 @@
+streamlit==1.12.2
+pandas
+snowflake-connector-python
+toml
+altair
