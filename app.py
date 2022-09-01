@@ -33,7 +33,7 @@ def connect_to_snowflake(acct, user, pwd, rl, wh, db):
 def get_data():
     query = 'SELECT * FROM COMFORMED.FINANCIAL_DATA_UNPAID;'
     results = st.session_state['snow_conn'].execute(query)
-    result = st.session_state['snow_conn'].fetch_pandas_all()
+    results = st.session_state['snow_conn'].fetch_pandas_all()
     return results
 
 
