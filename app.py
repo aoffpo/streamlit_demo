@@ -49,6 +49,8 @@ def render_chart(df):
 
 
 with sidebar:
+    file_path = st.file_uploader('Upload your file or add connection info')
+
     account = st.text_input('Account')
     username = st.text_input('Username')
     password = st.text_input('Password', type='password')
@@ -113,13 +115,14 @@ with sidebar:
             st.altair_chart(chart, use_container_width=True)
 
     # bring a file in as data source
-    file_path = st.file_uploader('Upload your file')
     if (file_path is not None):
-        if file_path.contains('json'):
+        if file_path.name.__contains__('json'):
             json = pd.read_json(file_path)
+            st.altair_chart(json, use_container_width=True)
         else:
             csv = pd.read_csv(file_path)
-        csv
+            st.altair_chart(csv, use_container_width=True)
+
     # camera input
     # st.camera_input('Get photo from camera')
 
